@@ -6,4 +6,6 @@ public interface PlayerRepository {
     ArrayList<Player> getPlayers();
 
     Player addPlayer(Player player);
+
+    Player getPlayerById(int playerId);
 }

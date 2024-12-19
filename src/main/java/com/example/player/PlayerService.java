@@ -1,11 +1,3 @@
-/*
- 
-* You can use the following import statements
- 
-import org.springframework.web.server.ResponseStatusException;
- import org.springframework.http.HttpStatus;
- 
- */
 
 package com.example.player;
 
@@ -47,6 +39,15 @@ public class PlayerService implements PlayerRepository {
         player.setPlayerId(uniqueId);
         team.put(uniqueId, player);
         uniqueId++;
+        return player;
+    }
+
+    @Override
+    public Player getPlayerById(int playerId) {
+        Player player = team.get(playerId);
+        if (player == null){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
         return player;
     }
 
