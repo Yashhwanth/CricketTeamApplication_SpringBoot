@@ -20,6 +20,7 @@ import org.springframework.http.HttpStatus;
 public class PlayerService implements PlayerRepository {
 
     private static HashMap<Integer, Player> team = new HashMap<>();
+    private int uniqueId = 12;
 
     public PlayerService() {
         team.put(1, new Player(1, "Alexander", 5, "All-rounder"));
@@ -39,6 +40,14 @@ public class PlayerService implements PlayerRepository {
     public ArrayList<Player> getPlayers() {
         ArrayList<Player> playersList = new ArrayList<>(team.values());
         return playersList;
+    }
+
+    @Override
+    public Player addPlayer(Player player) {
+        player.setPlayerId(uniqueId);
+        team.put(uniqueId, player);
+        uniqueId++;
+        return player;
     }
 
 }
