@@ -10,4 +10,6 @@ public interface PlayerRepository {
     Player getPlayerById(int playerId);
 
     Player updatePlayerById(int playerId, Player player);
+
+    void deletePlayer(int playerId);
 }
