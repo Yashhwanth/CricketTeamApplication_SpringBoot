@@ -8,4 +8,6 @@ public interface PlayerRepository {
     Player addPlayer(Player player);
 
     Player getPlayerById(int playerId);
+
+    Player updatePlayerById(int playerId, Player player);
 }
